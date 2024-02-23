@@ -3,9 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>Home</title>
 </head>
 <body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="signup.html">Sign Up</a>
+        <a href="login.html">Login</a>
+    </nav>
+
     <form>
         <label for="championName">Name</label>
         <input type="text" name="championName">
@@ -31,7 +38,7 @@
                 let champions = document.querySelector('#champions');
                 data.forEach(champion => {
                     champions.innerHTML += `
-                    <a href="champion.html?id=${champion.id}">
+                    <a class="champion" href="champion.html?id=${champion.id}">
                         <h2>${champion.name}</h2>
                     </a>
                     `;
@@ -45,6 +52,11 @@
 
             let championName = document.querySelector('input[name="championName"]').value
             let championType = document.querySelector('select[name="championType"]').value
+
+            if (!championName || !championType) {
+                return
+            }
+
             await fetch('http://localhost:3000/champions', {
                 method: 'POST',
                 headers: {

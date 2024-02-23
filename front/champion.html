@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>Champion</title>
 </head>
 <body>
     <div id="champion"></div>
     <button onclick="deleteChampion()">Delete</button>
-    
+
     <script>
         let url = window.location.search
         let id = new URLSearchParams(url).get('id')
@@ -20,7 +21,7 @@
             <small>${data.id}</small>
             <h1>${data.name}</h1>
             <p>${data.type}</p>
-            <a href="rename.html?id=${data.id}">Rename</a>
+            <a href="update.html?id=${data.id}">Update</a>
             <a href="index.html">Back</a>
             `
         })
