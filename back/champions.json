@@ -1,0 +1,62 @@
+[
+    {
+        "name": "Aatrox",
+        "type": "compatant"
+    },
+    {
+        "name": "Ahri",
+        "type": "mage"
+    },
+    {
+        "name": "Akali",
+        "type": "assassin"
+    },
+    {
+        "name": "Alistar",
+        "type": "tank"
+    },
+    {
+        "name": "Amumu",
+        "type": "tank"
+    },
+    {
+        "name": "Anivia",
+        "type": "mage"
+    },
+    {
+        "name": "Annie",
+        "type": "mage"
+    },
+    {
+        "name": "Ashe",
+        "type": "marksman"
+    },
+    {
+        "name": "Aurelion Sol",
+        "type": "mage"
+    },
+    {
+        "name": "Azir",
+        "type": "mage"
+    },
+    {
+        "name": "Bard",
+        "type": "support"
+    },
+    {
+        "name": "Blitzcrank",
+        "type": "tank"
+    },
+    {
+        "name": "Brand",
+        "type": "mage"
+    },
+    {
+        "name": "Braum",
+        "type": "tank"
+    },
+    {
+        "name": "Caitlyn",
+        "type": "marksman"
+    }
+]
