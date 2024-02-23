@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Champion</title>
+</head>
+<body>
+    <form>
+        <input type="text" name="championName">
+        <input type="text" name="championType">
+        <button onclick="updateChampion()">Update Champion</button>
+    </form>
+
+    <script>
+        let url = window.location.search
+        let id = new URLSearchParams(url).get('id')
+        fetch(`http://localhost:3000/champions/${id}`)
+        .then((response) => response.json())
+        .then((data) => {
+            let champion = document.querySelector('input[name="championName"]')
+            let type = document.querySelector('input[name="championType"]')
+            champion.value = data.name
+            type.value = data.type
+        })
+
+        const updateChampion = async () => {
+            event.preventDefault()
+            let champion = document.querySelector('input[name="championName"]').value
+            let type = document.querySelector('input[name="championType"]').value
+            let response = await fetch(`http://localhost:3000/champions/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: champion,
+                    type: type
+                })
+            })
+            window.location.href = 'index.html'
+        }
+    </script>
+</body>
+</html>
