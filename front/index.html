@@ -41,12 +41,15 @@
         const sendChampion = async () => {
             event.preventDefault()
 
+            let token = localStorage.getItem('token')
+
             let championName = document.querySelector('input[name="championName"]').value
             let championType = document.querySelector('select[name="championType"]').value
             await fetch('http://localhost:3000/champions', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'x-access-token': token
                 },
                 body: JSON.stringify({
                     name: championName,
@@ -59,7 +62,11 @@
         const insertChampions = async () => {
             event.preventDefault()
 
-            await fetch('http://localhost:3000/champions/seed')
+            await fetch('http://localhost:3000/champions/seed', {
+                headers: {
+                    'x-access-token': localStorage.getItem('token')
+                }
+            })
             window.location.href = 'index.html'
         }
     </script>

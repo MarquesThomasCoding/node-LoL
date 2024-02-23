@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client'
+import jwt from 'jsonwebtoken'
 import championData from '../champions.json' assert { type: "json" }
 
 const prisma = new PrismaClient()
@@ -29,66 +30,109 @@ const getChampion = (req, res) => {
 }
 
 const createChampion = (req, res) => {
-    let champion = req.body
-    prisma.champion.create({
-        data: {
-            name: champion.name,
-            type: champion.type,
+    const token = req.headers['x-access-token']
+    if(!token) {
+        window.location.href = 'index.html'
+        return res.json({ error: 'No token provided' })
+    }
+
+    jwt.verify(token, process.env.JWT_SECRET, (error, decoded) => {
+        if(error) {
+            return res.json({ error: 'Failed to authenticate token' })
         }
-    })
-    .then((champion) => {
-        res.json(champion)
-    })
-    .catch((error) => {
-        res.json(error)
+        let champion = req.body
+        prisma.champion.create({
+            data: {
+                name: champion.name,
+                type: champion.type,
+            }
+        })
+        .then((champion) => {
+            res.json(champion)
+        })
+        .catch((error) => {
+            res.json(error)
+        })
     })
 }
 
 const insertChampions = (req, res) => {
-    let champions = championData
-    prisma.champion.createMany({
-        data: champions
-    })
-    .then((champions) => {
-        res.json(champions)
-    })
-    .catch((error) => {
-        res.json(error)
+    const token = req.headers['x-access-token']
+    if(!token) {
+        window.location.href = 'index.html'
+        return res.json({ error: 'No token provided' })
+    }
+
+    jwt.verify(token, process.env.JWT_SECRET, (error, decoded) => {
+        if(error) {
+            return res.json({ error: 'Failed to authenticate token' })
+        }
+        let champions = championData
+        prisma.champion.createMany({
+            data: champions
+        })
+        .then((champions) => {
+            res.json(champions)
+        })
+        .catch((error) => {
+            res.json(error)
+        })
     })
 }
 
 const deleteChampion = (req, res) => {
-    let id = Number(req.params.id)
-    prisma.champion.delete({
-        where: {
-            id: id
+    const token = req.headers['x-access-token']
+    if(!token) {
+        return res.json({ error: 'No token provided' })
+    }
+
+    jwt.verify(token, process.env.JWT_SECRET, (error, decoded) => {
+        if(error) {
+            return res.json({ error: 'Failed to authenticate token' })
         }
-    })
-    .then((champion) => {
-        res.json(champion)
-    })
-    .catch((error) => {
-        res.json(error)
+        let id = Number(req.params.id)
+        prisma.champion.delete({
+            where: {
+                id: id
+            }
+        })
+        .then((champion) => {
+            res.json(champion)
+        })
+        .catch((error) => {
+            res.json(error)
+        })
     })
 }
 
 const updateChampion = (req, res) => {
-    let id = Number(req.params.id)
-    let champion = req.body
-    prisma.champion.update({
-        where: {
-            id: id
-        },
-        data: {
-            name: champion.name,
-            type: champion.type,
+    const token = req.headers['x-access-token']
+    if(!token) {
+        window.location.href = 'index.html'
+        return res.json({ error: 'No token provided' })
+    }
+
+    jwt.verify(token, process.env.JWT_SECRET, (error, decoded) => {
+        if(error) {
+            return res.json({ error: 'Failed to authenticate token' })
         }
-    })
-    .then((champion) => {
-        res.json(champion)
-    })
-    .catch((error) => {
-        res.json(error)
+        let id = Number(req.params.id)
+        let champion = req.body
+        prisma.champion.update({
+            where: {
+                id: id
+            },
+            data: {
+                name: champion.name,
+                type: champion.type,
+            }
+        })
+        .then((champion) => {
+            res.json(champion)
+        })
+        .catch((error) => {
+            res.json(error)
+        })
     })
 }
 

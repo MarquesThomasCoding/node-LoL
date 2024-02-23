@@ -31,7 +31,8 @@
             let response = await fetch(`http://localhost:3000/champions/${id}`, {
                 method: 'PUT',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'x-access-token': localStorage.getItem('token')
                 },
                 body: JSON.stringify({
                     name: champion,
