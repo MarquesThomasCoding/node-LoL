@@ -23,7 +23,9 @@
                 let champions = document.querySelector('#champions');
                 data.forEach(champion => {
                     champions.innerHTML += `
+                    <a href="champion.html?id=${champion.id}">
                         <h2>${champion.name}</h2>
+                    </a>
                     `;
                 });
             });
