@@ -10,7 +10,13 @@
         <label for="championName">Name</label>
         <input type="text" name="championName">
         <label for="championType">Type</label>
-        <input type="text" name="championType">
+        <select name="championType">
+            <option value="Mage">Mage</option>
+            <option value="Fighter">Fighter</option>
+            <option value="Tank">Tank</option>
+            <option value="Marksman">Marksman</option>
+            <option value="Support">Support</option>
+        </select>
         <button onclick="sendChampion()">New Champion</button>
     </form>
 
@@ -33,7 +39,7 @@
         const sendChampion = async () => {
             event.preventDefault()
             let championName = document.querySelector('input[name="championName"]').value
-            let championType = document.querySelector('input[name="championType"]').value
+            let championType = document.querySelector('select[name="championType"]').value
             await fetch('http://localhost:3000/champions', {
                 method: 'POST',
                 headers: {
