@@ -1,5 +1,5 @@
 import express from 'express';
-import champion from './routes/champion.js';
+import champion from './routes/ChampionRoutes.js';
 
 const router = express.Router()
 
