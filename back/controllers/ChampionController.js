@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client'
+import championData from '../champions.json' assert { type: "json" }
 
 const prisma = new PrismaClient()
 
@@ -43,6 +44,19 @@ const createChampion = (req, res) => {
     })
 }
 
+const insertChampions = (req, res) => {
+    let champions = championData
+    prisma.champion.createMany({
+        data: champions
+    })
+    .then((champions) => {
+        res.json(champions)
+    })
+    .catch((error) => {
+        res.json(error)
+    })
+}
+
 const deleteChampion = (req, res) => {
     let id = Number(req.params.id)
     prisma.champion.delete({
@@ -78,4 +92,4 @@ const updateChampion = (req, res) => {
     })
 }
 
-export { getChampions, getChampion, createChampion, deleteChampion, updateChampion }
+export { getChampions, getChampion, createChampion, deleteChampion, updateChampion, insertChampions }

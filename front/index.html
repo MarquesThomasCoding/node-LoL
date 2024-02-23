@@ -20,6 +20,8 @@
         <button onclick="sendChampion()">New Champion</button>
     </form>
 
+    <button onclick="insertChampions()">Insert Champions</button>
+
     <div id="champions"></div>
 
     <script>
@@ -38,6 +40,7 @@
 
         const sendChampion = async () => {
             event.preventDefault()
+
             let championName = document.querySelector('input[name="championName"]').value
             let championType = document.querySelector('select[name="championType"]').value
             await fetch('http://localhost:3000/champions', {
@@ -50,6 +53,13 @@
                     type: championType
                 })
             })
+            window.location.href = 'index.html'
+        }
+
+        const insertChampions = async () => {
+            event.preventDefault()
+
+            await fetch('http://localhost:3000/champions/seed')
             window.location.href = 'index.html'
         }
     </script>
