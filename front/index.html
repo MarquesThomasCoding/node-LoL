@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <div id="champions"></div>
+
+    <script>
+        fetch('http://localhost:3000/champions')
+            .then((response) => response.json())
+            .then((data) => {
+                let champions = document.querySelector('#champions');
+                data.forEach(champion => {
+                    champions.innerHTML += `
+                        <h2>${champion.name}</h2>
+                    `;
+                });
+            });
+    </script>
+</body>
+</html>
