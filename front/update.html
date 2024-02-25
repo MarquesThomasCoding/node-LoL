@@ -9,7 +9,14 @@
 <body>
     <form>
         <input type="text" name="championName">
-        <input type="text" name="championType">
+        <select name="championType">
+            <option value="mage">Mage</option>
+            <option value="fighter">Fighter</option>
+            <option value="tank">Tank</option>
+            <option value="marksmen">Marksman</option>
+            <option value="support">Support</option>
+            <option value="assassin">Assassin</option>
+        </select>
         <button onclick="updateChampion()">Update Champion</button>
     </form>
 
@@ -20,7 +27,7 @@
         .then((response) => response.json())
         .then((data) => {
             let champion = document.querySelector('input[name="championName"]')
-            let type = document.querySelector('input[name="championType"]')
+            let type = document.querySelector('select[name="championType"]')
             champion.value = data.name
             type.value = data.type
         })
@@ -28,7 +35,7 @@
         const updateChampion = async () => {
             event.preventDefault()
             let champion = document.querySelector('input[name="championName"]').value
-            let type = document.querySelector('input[name="championType"]').value
+            let type = document.querySelector('select[name="championType"]').value
             let response = await fetch(`http://localhost:3000/champions/${id}`, {
                 method: 'PUT',
                 headers: {
