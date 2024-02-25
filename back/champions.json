@@ -1,62 +1,86 @@
 [
-    {
-        "name": "Aatrox",
-        "type": "combatant"
-    },
-    {
-        "name": "Ahri",
-        "type": "mage"
-    },
-    {
-        "name": "Akali",
-        "type": "assassin"
-    },
-    {
-        "name": "Alistar",
-        "type": "tank"
-    },
-    {
-        "name": "Amumu",
-        "type": "tank"
-    },
-    {
-        "name": "Anivia",
-        "type": "mage"
-    },
-    {
-        "name": "Annie",
-        "type": "mage"
-    },
-    {
-        "name": "Ashe",
-        "type": "marksman"
-    },
-    {
-        "name": "Aurelion Sol",
-        "type": "mage"
-    },
-    {
-        "name": "Azir",
-        "type": "mage"
-    },
-    {
-        "name": "Bard",
-        "type": "support"
-    },
-    {
-        "name": "Blitzcrank",
-        "type": "tank"
-    },
-    {
-        "name": "Brand",
-        "type": "mage"
-    },
-    {
-        "name": "Braum",
-        "type": "tank"
-    },
-    {
-        "name": "Caitlyn",
-        "type": "marksman"
-    }
+  {
+    "name": "Kalista",
+    "type": "marksmen"
+  },
+  {
+    "name": "Viego",
+    "type": "fighter"
+  },
+  {
+    "name": "Lee Sin",
+    "type": "fighter"
+  },
+  {
+    "name": "Alistar",
+    "type": "support"
+  },
+  {
+    "name": "Ivern",
+    "type": "support"
+  },
+  {
+    "name": "Gnar",
+    "type": "tank"
+  },
+  {
+    "name": "Briar",
+    "type": "assassin"
+  },
+  {
+    "name": "Aatrox",
+    "type": "tank"
+  },
+  {
+    "name": "Ahri",
+    "type": "assassin"
+  },
+  {
+    "name": "Lilia",
+    "type": "fighter"
+  },
+  {
+    "name": "Jax",
+    "type": "fighter"
+  },
+  {
+    "name": "Kennen",
+    "type": "mage"
+  },
+  {
+    "name": "Leblanc",
+    "type": "mage"
+  },
+  {
+    "name": "Ezreal",
+    "type": "marksmen"
+  },
+  {
+    "name": "Vayne",
+    "type": "marksmen"
+  },
+  {
+    "name": "Zed",
+    "type": "assassin"
+  },
+  {
+    "name": "Jarvan IV",
+    "type": "tank"
+  },
+  {
+    "name": "Kayn",
+    "type": "assassin"
+  },
+  {
+    "name": "Sett",
+    "type": "fighter"
+  },
+  {
+    "name": "Swain",
+    "type": "tank"
+  },
+  {
+    "name": "Draven",
+    "type": "marksmen"
+  }
 ]
